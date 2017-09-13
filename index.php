@@ -15,7 +15,7 @@ $donnée = $reponse;
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-5">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -32,14 +32,16 @@ $donnée = $reponse;
     </header>
     <?php  while ( $donnée=$reponse->fetch())
     {
-      echo "<div class='card mx-auto' style='width: 50rem;' id='billetscom'>";
-      echo "<div class='card-block'>";
-      echo '<p>' . $donnée['date_creation'] . '</p>';
-      echo '<h4 class="card-title">' . $donnée['titre'] . '</h4>';
-      echo '<p class="card-text">' . $donnée['contenu'] . '</p>';
-      echo "<a href='#' class='btn btn-primary'>voir plus</a>";
-      echo '</div>';
-      echo "</div>";
+      ?>
+       <div class='card mx-auto mb-5' style='width: 50rem;' id='billetscom'>
+       <div class='card-block  '>
+       <p> <?php echo  $donnée['date_creation'] ?> </p>
+       <h4 class="card-title"><?php $donnée['titre'] ?> </h4>
+       <p class="card-text"><?php echo $donnée['contenu'] ?> </p>
+       <a href="commentaire.php?id= <?php echo $donnée['id'] ?>" class="btn btn-primary">voir plus</a>
+       </div>
+       </div>
+    <?php
     }
     ?>
 
